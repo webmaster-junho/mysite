@@ -17,11 +17,13 @@
 		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		<div id="content">
 			<div id="user">
-				<form:form modelAttribute="userVo"
-				id="join-form" 
-				name="joinForm" 
-				method="post" 
+				<form:form
+				 modelAttribute="userVo"
+				 id="join-form" 
+				 name="joinForm" 
+				 method="post" 
 				action="${pageContext.servletContext.contextPath}/user/update" >
+				<label class="block-label" for="name">이름</label>
 				<form:input path="name" />
 					<spring:hasBindErrors name="userVo">
 					<br>
@@ -30,11 +32,13 @@
 							<spring:message code='${errors.getFieldError("name").codes[0] }' text='${errors.getFieldError("name").defaultMessage }'></spring:message>
 						</p>
 						</c:if>
-					</spring:hasBindErrors>
+					</spring:hasBindErrors>	
 					<label class="block-label" for="email">이메일</label>
 					<h4>${userVo.email }</h4>
+					<form:hidden path="email" />
 					<label class="block-label">패스워드</label>
 					<form:password path="password" />
+					<br>
 					<form:radiobuttons path="gender" items="${userVo.genders }" />
 					
 					<input type="submit" value="수정하기">

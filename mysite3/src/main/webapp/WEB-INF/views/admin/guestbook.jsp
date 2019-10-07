@@ -18,26 +18,9 @@
 		<div id="wrapper">
 			<div id="content">
 				<div id="site-form">
-					<form
-						action="${pageContext.servletContext.contextPath}/admin/guestbook/add"
-						method="post">
-						<table>
-							<tr>
-								<td>이름</td>
-								<td><input type="text" name="name"></td>
-								<td>비밀번호</td>
-								<td><input type="password" name="password"></td>
-							</tr>
-							<tr>
-								<td colspan=4><textarea name="contents" id="content"></textarea></td>
-							</tr>
-							<tr>
-								<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
-							</tr>
-						</table>
-					</form>
 					<ul>
-						<li><c:set var='count' value='${fn:length(list) }' /> <c:forEach
+						<li>
+							<c:set var='count' value='${fn:length(list) }' /> <c:forEach
 								items='${list }' var='vo' varStatus='status'>
 								<table>
 									<tr>
@@ -45,7 +28,7 @@
 										<td>${vo.name }</td>
 										<td>${vo.reg_date }</td>
 										<td><a
-											href="${pageContext.servletContext.contextPath}/guestbook/delete/${vo.no}">삭제</a></td>
+											href="${pageContext.servletContext.contextPath}/admin/guestbook/delete/${vo.no}">삭제</a></td>
 									</tr>
 									<tr>
 										<td colspan=4>${fn:replace(vo.contents, newline, '<br/>')}
@@ -53,7 +36,8 @@
 									</tr>
 								</table>
 								<br>
-							</c:forEach></li>
+							</c:forEach>
+						</li>
 					</ul>
 				</div>
 			</div>

@@ -14,7 +14,7 @@ public class AdminDao {
 	@Autowired
 	private SqlSession sqlsession;
 
-	public List<GuestBookVo> getList() {
+	public List<GuestBookVo> getGuestBookList() {
 		List<GuestBookVo> list = sqlsession.selectList("admin.guestbookgetList");
 		return list;
 	}
@@ -27,6 +27,11 @@ public class AdminDao {
 	public SiteVo get(Long no) {
 		SiteVo vo = sqlsession.selectOne("site.get",no);
 		return vo;
+	}
+
+	public Boolean deletegetGuestBook(Long no) {
+		int count = sqlsession.delete("admin.guestbookDelete",no);
+		return count==1;
 	}
 
 }

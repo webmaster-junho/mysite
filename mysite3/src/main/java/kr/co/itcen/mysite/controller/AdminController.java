@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,11 +39,15 @@ public class AdminController {
 	}
 	@RequestMapping("/guestbook")
 	public String guestbook(Model model) {
-		List<GuestBookVo> list = adminService.getList();
+		List<GuestBookVo> list = adminService.getGuestBookList();
 		model.addAttribute("list",list);
 		return "admin/guestbook";
 	}
-	
+	@RequestMapping(value="/guestbook/delete/{no}",method=RequestMethod.GET)
+	public String guestbookdelete(@PathVariable("no") Long no) {
+		adminService.deleteGuestBook(no);
+		return "redirect:/admin/guestbook";
+	}
 	@RequestMapping("/board")
 	public String board() {
 		return "admin/board";

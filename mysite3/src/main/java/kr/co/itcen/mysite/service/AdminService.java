@@ -21,9 +21,9 @@ public class AdminService {
 	private AdminDao adminDao;
 	private static final String SAVE_PATH="/uploads";
 	private static final String URL_PREFIX="/images";
-	public List<GuestBookVo> getList() {
+	public List<GuestBookVo> getGuestBookList() {
 
-		return adminDao.getList();
+		return adminDao.getGuestBookList();
 	}
 
 	public Boolean updatemain(SiteVo vo) {
@@ -64,6 +64,10 @@ public class AdminService {
 
 	public SiteVo get(Long no) {
 		return adminDao.get(no);
+	}
+
+	public Boolean deleteGuestBook(Long no) {
+		return adminDao.deletegetGuestBook(no);
 	}
 
 }

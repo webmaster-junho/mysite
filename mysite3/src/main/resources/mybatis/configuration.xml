@@ -9,12 +9,15 @@
 		<typeAlias type="kr.co.itcen.mysite.vo.GuestBookVo" alias="guestbookvo"/>
 		<typeAlias type="kr.co.itcen.mysite.vo.BoardVo" alias="boardvo"/>
 		<typeAlias type="kr.co.itcen.mysite.vo.PictureVo" alias="picturevo"/>	
+		<typeAlias type="kr.co.itcen.mysite.vo.SiteVo" alias="sitevo"/>	
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
 		<mapper resource="mybatis/mappers/guestbook.xml" />
 		<mapper resource="mybatis/mappers/board.xml"/>
 		<mapper resource="mybatis/mappers/picture.xml"/>		
+		<mapper resource="mybatis/mappers/admin.xml"/>
+		<mapper resource="mybatis/mappers/site.xml"/>
 	</mappers>
 	
 </configuration>
